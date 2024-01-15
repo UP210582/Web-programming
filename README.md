@@ -13,11 +13,8 @@
 <img src="https://visitor-badge.laobi.icu/badge?page_id=UP210582" id="counter">
 </p>
 
-###   
-```ini
-[Universidad Politecnica de Aguascalientes]
-[Computerstystems Engineer]
-```
+Universidad Politecnica de Aguascalientes
+Computerstystems Engineer
 <img alt="c++" height="200" src="https://github.com/UP210582/UP210582_CPP/blob/main/Imagenes/github.gif"/>
 
 REPOSITORY 
