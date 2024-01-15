@@ -14,6 +14,7 @@
 </p>
 
 Universidad Politecnica de Aguascalientes
+
 Computerstystems Engineer
 
 <img alt="c++" height="200" src="https://github.com/UP210582/UP210582_CPP/blob/main/Imagenes/github.gif"/>
