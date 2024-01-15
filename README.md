@@ -34,9 +34,7 @@ Computerstystems Engineer
 
 ## Git Commands
 git clone - download a folder
-
 git pull - update current git folder on the desktop
-
 git status - check changes that have been made
 
 
