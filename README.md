@@ -30,6 +30,13 @@ Computerstystems Engineer
 <img alt="c++" height="200" src="https://github.com/UP210582/UP210582_CPP/blob/main/Imagenes/EnchantmentTable.webp"/>
 </div>   
 
+<div align= "center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=UP210582&show_icons=true&theme=radical&title_color=8E2DE2&text_color=fff&icon_color=8E2DE2">
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=UP210582&theme=radical&title_color=8E2DE2&text_color=fff)
+
+</div>  
 
 
 ## Git Commands
