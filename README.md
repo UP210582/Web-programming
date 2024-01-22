@@ -15,9 +15,9 @@
 <img src="https://visitor-badge.laobi.icu/badge?page_id=UP210582" id="counter">
 </p>
 
-Universidad Politecnica de Aguascalientes
+### Universidad Politecnica de Aguascalientes
 
-Computerstystems Engineer
+### Computerstystems Engineer
 
 
 <img src=https://github.com/UP210582/UP210582_CPP/blob/main/Imagenes/089af74235a38edcc7b433321f0a5472_w200.gif 
@@ -26,7 +26,11 @@ Computerstystems Engineer
 
 <div align= "center">
 
-<h2 id="table-of-contents"> Table of Contents</h2>
+<h2 id="table-of-contents"> 
+
+### Table of Contents
+
+</h2>
 
   <div align ="CENTER">
 <img alt="c++" height="200" src="https://github.com/UP210582/UP210582_CPP/blob/main/Imagenes/EnchantmentTable.webp"/>
