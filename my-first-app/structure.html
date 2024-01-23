@@ -3,10 +3,69 @@
         <title> Fake Twitter </title>
         <link rel="shortcut icon" href="Icon2.png" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <style>body{background-color: black; color: white;}</style>
+
     </head>
     <body><!--Se define el cuerpo de HTML o de mi documento HTML-->
         <h1>Hola Mundo</h1>
         <p>Hola como estas, quiere ir al ba&ntilde;io?</p>
-        
+        <p>La etiqueta p siempre inluye, <p>Hola Mundo</p>Una salto de linea</p>
+        <p>El salto de linea siempre es antes y  despues <b>Para poner en negritas se puede con la etiqueta b</b> y <strong>con la etiqueta strong</strong> </p>
+        <i>con la etiqueta "i" es para poner letra cursiva</i>
+        <del>para subrayar es con la etiqueta del</del> es recomendable solo usar los estilos en css, htlm solo es el esqueleto de la pagina
+        <span>span es para definir un espacio de texto, esta no incluye saltos de linea</span>
+        <p>si quieres realizar algun salto de linea <br> puedes utlizar la etiqueta <b>br</b> esta etiqueta no se cierra</p>
+        <p>para agregar una linea es con hr  <br> <a href="hola.html">picame</a>  </p>
+        <hr>
+        <p>para agregar imagenes es con <b>img</b></p>
+        <img
+        src="Icon2.png" alt="Try to refresh the page" width="100" height="100">
+        <!--Listas de elementos-->
+            <p>Existen 2 listas las <b>ordenadas</b> y <b>desordenadas</b></p>
+        <!--Ordenadas-->
+        <p>para crear listas ordenadas es con OL</p>
+        <ol>
+            <li>Correr</li>
+            <li>Nadar</li>
+            <li>Trepar</li>
+        </ol>
+
+        <!--Desordenadas-->
+        <p>Para crear listas desordenadas es con UL</p>
+        <ul>
+            <li>Correr</li>
+            <li>Nadar</li>
+            <li>Trepar</li>
+        </ul>
+
+        <!--Elementos de seccion-->
+        <p>Para dividir secciones de texto es con la etiqueta div</p>
+        <div>
+            <div>
+                Funciona igual con el span
+            </div>
+        </div>
+        <!--Elementos de formulario-->
+        <form>
+            <p>Para mandar datos es por medio de los formularios</p>
+            <p>los elementos de formularo son la manera de como interactuar con el usuario el mas comun es input</p>
+            <input type="text" placeholder="Escribe tu nombre" name="nombre"> <br> 
+            <input type="button" value="Download">
+            <p>No usar la etiqueta input:button, es mejor usar button<input type="checkbox" name="No" id=""> <br><button>Send</button></p>
+            <P>Para seleccionar un color es con input:color <br><input type="color" name="" id=""></P>
+            <p>Para fechas es con input:date <br><input type="date" name="" id=""></p>
+            <p>Para poner una fecha con dia y hora es con input:datetime-local <br><input type="datetime-local" name="" id=""></p>
+            <input type="submit" value="Submit">
+            <p>Los seleccionadores multiples es con la etiqueta select <br>
+                <select>
+                    <option>Correr</option>
+                    <option>Nadar</option>
+                    <option>Trepar</option>
+                </select>
+            </p>
+            <p>Para cadenas de texto largas podemos utilizar textarea <br>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Escribe algo"></textarea>
+            </p>
+        </form>
     </body>
 </html>
