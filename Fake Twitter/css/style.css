@@ -3,44 +3,61 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 a{
     color: rgb(29, 155, 240);
     text-decoration: none;
-}
-.grayText{
-    color: rgb(65, 68, 71);
-}
-.containerTwitt{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    border: solid 1px white;
-    width: 650px;
-    height: 400px;
 }
 img, svg{
     max-width: 100%;
     height: auto;
 }
 body{
+    border: solid white;
     display: flex;
+
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }
+.containerTwitt{
+    border: solid 1px white;
+    width: 650px;
+    height: 400px;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 50px;
+
+    border-radius: 10px;
+}
+.bodyTwitt {
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+.grayText{
+    color: rgb(65, 68, 71);
+}
 .containerIcons{
+    grid-column: 1/2;
+    grid-row: 2/3;
+
     display: flex;
-    justify-content: space-between;
+
+    justify-content: space-around;
 }
 .icon{
-    
     border: solid 1px white;
-    width: 18px;
-    height: 18px;
+    height: 60px;
+    width: 60px;
 }
-
 .icon > svg{
-    width: 1000px;
+    width: 60%;
 }
 .profile-image {
     border-radius: 100%;
@@ -53,6 +70,7 @@ body{
     grid-column: 1/4;
 }
 .containerImg{
-    grid-column: 2/2;
+    grid-column: 5/13;
+    grid-row: 4/11;
     justify-content: center;
 }
