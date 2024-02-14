@@ -1,6 +1,18 @@
 :root{
     --primaryColorGray: rgb(65, 68, 71);
     --primaryColorGray2: rgba(65, 68, 71, 0.15);
+
+    --iconLike: rgb(224, 36, 94);
+    --iconLikeTrans: rgba(224, 36, 94, 0.4);
+
+    --iconComment: rgb(29, 161, 242);
+    --iconCommentTrans: rgba(29, 161, 242, 0.4);
+
+    --iconRetwitt: rgb(24, 176, 95);
+    --iconRetwittTrans: rgba(24, 176, 95, 0.4);
+
+    --iconShare: rgb(30, 148, 221);
+    --iconShareTrans: rgba(30, 148, 221, 0.4);
 }
 *{background-color: black; 
     color: white;
@@ -54,15 +66,27 @@ body{
 
     justify-content: space-around;
 }
-.containerIcons:first-child{
-    background-color: white;
-}
 .icon{
-    width: 20px;
+    width: 40px;
     height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.icon > svg{
-    width: 60%;
+.icon span{
+    font-size: small;
+}
+.icon  svg{
+    border-radius: 50%;
+    width: 80%;
+    padding: 5px;
+    margin-right: 2.5px;
+}
+.containerIcons .icon:nth-child(4){
+    display: flex;
+    justify-content: center ;
+    height: 30px;
+    width: 35px;
 }
 .container{
     grid-template-columns: repeat(2, 1fr);
@@ -79,8 +103,7 @@ body{
     margin: 10px;
 }
 .containerTwittBody .header p{
-    
-    padding: 5px 10px;
+    padding: 2.5px 10px;
 }
 .containerImg img{
     max-width: 95%;
@@ -88,6 +111,7 @@ body{
     display: flex;
     justify-content: center;
     border-radius: 20px;
+    margin-left: 60px;
 }
 .containerTwittBody .containerImg{
     padding-top: 20px;
@@ -95,8 +119,47 @@ body{
 .containerTwitt:hover{
     background-color: var(--primaryColorGray2);
     transition-duration: 0.2s;
-
+    border-radius: 10px;
 }
 .containerTwitt *{
     background-color: transparent;
+}
+.containerIcons .icon:nth-child(3):hover svg{
+    border-radius: 50%;
+    background-color: var(--iconLikeTrans);
+    fill: var(--iconLike);
+}
+.containerIcons .icon:nth-child(3):hover span{
+    color: var(--iconLike);
+}
+.containerIcons .icon:nth-child(3):hover svg, .container .icon:nth-child(3):hover span{
+    transition-duration: 0.2s;
+}
+.containerIcons>div:nth-child(2):hover>div svg{
+    border-radius: 50%;
+    background-color: var(--iconRetwittTrans);
+    fill: var(--iconRetwitt);
+}
+.containerIcons .icon:nth-child(2):hover span{
+    color: var(--iconRetwitt);
+}
+.containerIcons .icon:nth-child(2):hover svg, .container .icon:nth-child(2):hover span{
+    transition-duration: 0.2s;
+}
+.containerIcons >div:nth-child(1):hover>div svg{
+    border-radius: 50%;
+    background-color: var(--iconCommentTrans);
+    fill: var(--iconComment);
+}
+.containerIcons .icon:nth-child(1):hover span{
+    color: var(--iconComment);
+}
+.containerIcons .icon:nth-child(1):hover svg, .container .icon:nth-child(1):hover span{
+    transition-duration: 0.2s;
+}
+.containerIcons>div:nth-child(4):hover>div svg{
+    border-radius: 50%;
+    background-color: var(--iconShareTrans);
+    fill: var(--iconShare);
+    transition-duration: 0.2s;
 }
