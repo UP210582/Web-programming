@@ -1,21 +1,31 @@
+let counterClicks = document.getElementById('count');
+let btnIncrement = document.querySelector('.btn-primary');
+let btnDecrement = document.querySelector('.btn-secondary');
+let btnReset = document.querySelector('.btn-reset');
 let clicks = 0;
-const countClicks = document.querySelector('#count');
-const [increment, decrement, reset] = document.querySelectorAll('button');
 
 document.addEventListener('DOMContentLoaded', () => {
-  increment.onclick = () => {
+  counterClicks.innerText = clicks;
+  btnIncrement.addEventListener("click", function(){
     clicks++;
-    countClicks.innerHTML = clicks;
-  };
-
-  decrement.onclick = () => {
-    clicks--;
-    countClicks.innerHTML = clicks;
-  };
-
-  reset.onclick = () => {
+    counterClicks.innerText = clicks;
+  });
+  btnDecrement.onclick = function(){
+    if(clicks > 0){
+      clicks--;
+      counterClicks.innerHTML = clicks;
+    }
+    else{
+      alert("El contador ya esta en cero");
+    }
+  }
+  btnReset.addEventListener("click", function(){
+    if(clicks == 0){
+      alert("El contador ya esta en ceros")
+    }
     clicks = 0;
-    countClicks.innerHTML = 0;
-  };
-  
+    counterClicks.innerHTML = clicks;
+  });
 });
+//document.getElementById('count').style.backgroundColor = "#000"; 
+//counterClicks.style.color = "#fff";
