@@ -1,92 +1,151 @@
-const hourEl = document.querySelector('.hours');
-const minuteEl = document.querySelector('.minutes');
-const secondEl = document.querySelector('.seconds');
-const formAlarm = document.querySelector('.form-alarm');
-let alarmDate;
+const hours = document.getElementById('hours');
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
+const formAlarm = document.getElementById('form-alarm');
+let alarmSong = null;
+let showNotification = false;
+let notificationCounter = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-    if(localStorage.getItem('alarm') !== null){
-        const input = formAlarm.children[0];
-        input.value = new Date(localStorage.getItem('alarm')).toTimeString
-    }
-    getCurrentTime();
+  if ('Notification' in window) {
+    Notification.requestPermission((request) => {
+      // if (request === 'granted') {
+      //   showNotification = true;
+      // }
+      showNotification = request === 'granted';
+
+      if (!showNotification) {
+        const [input, button] = formAlarm.children;
+        input.disabled = true;
+        input.value = "";
+        button.disabled = true;
+      }
+    });
+  }
+
+  if (localStorage.getItem('alarmita') !== null) {
+    const input = formAlarm.children[0];
+    //  yyyy-mm-ddThh:mm
+
+    localStorage.getItem('alarmita');
+    const alarmaFormato = new Date(localStorage.getItem('alarmita'));
+    const alarmYear = alarmaFormato.getFullYear();
+    const alarmMonth = alarmaFormato.getMonth();
+    const alarmDay = alarmaFormato.getDate();
+    const alarmHours = alarmaFormato.getHours();
+    const alarmMinutes = alarmaFormato.getMinutes();
+
+    input.value = `${alarmYear}-${formatNumber(alarmMonth)}-${formatNumber(alarmDay)}T${formatNumber(alarmHours)}:${alarmMinutes}`;
+  }
+
+  getCurrentTime();
 });
 
 setInterval(() => {
-    getCurrentTime();
-},1000);
+  getCurrentTime();
+}, 1000);
 
 formAlarm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    const value = formData.get('time');
+  const formData = new FormData(e.currentTarget);
+  const value = formData.get('time');
+  console.log(value);
 
+  if (value === null || value === "") {
+    alert("Establesca una fecha, no sea menso!!!!!");
+    return;
+  }
+    
+  const currentDate = new Date();
+  const setAlarm = new Date(value);
 
-    const currentDate = new Date();
-    const setAlarm = new Date(value);
+  if (isValidDate(currentDate, setAlarm)) {
+    alert("Fecha Invalida!!!");
+    return;
+  }
 
-    if (validDate(currentDate, setAlarm)){
-            alert("Fecha invalida");
-            return;
-            console.log(setAlarm);
-    }
-
-    localStorage.setItem('alarm', setAlarm.toString());
+  localStorage.setItem('alarmita', setAlarm.toString());
 });
 
-function formatNumber(value){
-    if(value < 10){
-        return "0" + value;
+const showAlarm = () => {
+  if (showNotification && localStorage.getItem('alarmita') !== null) {
+    const currentTime = new Date();
+    const alarm = new Date(localStorage.getItem('alarmita'));
+
+    const isSameYear = alarm.getFullYear() === currentTime.getFullYear();
+    const isSameMouth = alarm.getMonth() === currentTime.getMonth();
+    const isSameDay = alarm.getDate() === currentTime.getDate();
+    const isSameHours = alarm.getHours() === currentTime.getHours();
+    const isSameMinutes = alarm.getMinutes() === currentTime.getMinutes();
+
+    if (isSameYear && isSameMouth && isSameDay && isSameHours && isSameMinutes && notificationCounter <= 10) {
+      new Notification("This is an alarm!!!!!");
+      
+      if (alarmSong === null) {
+        alarmSong = new Audio('/assets/alarma.mp3').play();
+      }
+      notificationCounter++;
     }
-    else{
-        return value;
+
+    if (notificationCounter >= 10) {
+      formAlarm.children[0].value = "";
+      localStorage.removeItem('alarmita');
+      alarmSong.pause();
     }
+    
+  }
+};
+
+function getCurrentTime() {
+  showAlarm();
+
+  const currentDate = new Date();
+  const currentHours = currentDate.getHours();
+  const currentMinutes = currentDate.getMinutes();
+  const currentSeconds = currentDate.getSeconds();
+
+  hours.innerText = formatNumber(currentHours);
+  minutes.innerText = formatNumber(currentMinutes);
+  seconds.innerText = formatNumber(currentSeconds);
 }
 
-function getCurrentTime(){
-    const currentDate = new Date();
-    const currentHours = currentDate.getHours();
-    const currentMinutes = currentDate.getMinutes();
-    const currentSeconds = currentDate.getSeconds();
+function isValidDate(currentDate, setAlarm) {
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
+  const currentDay = currentDate.getDate();
+  const currentHours = currentDate.getHours();
+  const currentMinutes = currentDate.getMinutes();
 
-    console.log(alarmDate);
+  const alarmYear = setAlarm.getFullYear();
+  const alarmMonth = setAlarm.getMonth();
+  const alarmDay = setAlarm.getDate();
+  const alarmHours = setAlarm.getHours();
+  const alarmMinutes = setAlarm.getMinutes();
 
-    hourEl.innerText = formatNumber(currentHours);
-    minuteEl.innerText = formatNumber(currentMinutes);
-    secondEl.innerText = formatNumber(currentSeconds);
+  const añoAlarmaEsMenor = alarmYear < currentYear;
+  const añoAlarmaIgual = alarmYear === currentYear;
+  const mesAlarmaEsMenor = alarmMonth < currentMonth;
+  const mesAlarmaIgual = alarmMonth === currentMonth;
+  const diaAlarmaEsMenor = alarmDay < currentDay;
+  const diaAlarmaIgual = alarmDay === currentDay;
+  const horaAlarmaEsMenor = alarmHours < currentHours;
+  const horaAlarmaIgual = alarmHours === currentHours;
+  const minutosAlarmaEsMenorIgual = alarmMinutes <= currentMinutes;
+
+  return (
+    añoAlarmaEsMenor ||
+    añoAlarmaIgual && mesAlarmaEsMenor ||
+    añoAlarmaIgual && mesAlarmaIgual && diaAlarmaEsMenor ||
+    añoAlarmaIgual && mesAlarmaIgual && diaAlarmaIgual && horaAlarmaEsMenor ||
+    añoAlarmaIgual && mesAlarmaIgual && diaAlarmaIgual && horaAlarmaIgual && minutosAlarmaEsMenorIgual
+  );
 }
 
-function validDate(currentDate, setAlarm){
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
-    const currentDay = currentDate.getDate()
-    const currentHours = currentDate.getHours();
-    const currentMinutes = currentDate.getMinutes()
-
-    const alarmYear = setAlarm.getFullYear();
-    const alarmMonth = setAlarm.getMonth();
-    const alarmDay = setAlarm.getDay();
-    const alarmHours = setAlarm.getMinutes();
-    const alarmMinutes = setAlarm.getMinutes();
-
-    const alarmYearMinus = alarmYear < currentYear;
-    const alarmYearEqual = alarmYear === currentYear;
-    const alarmMonthMinus = alarmMonth < currentMonth;
-    const alarmMonthEqual = alarmMonth === currentMonth;
-    const alarmDayMinus = alarmDay < currentDay;
-    const alarmDayEqual = alarmDay === currentDay;
-    const alarmHoursMinus = alarmHours < currentHours;
-    const alarmHoursEqual = alarmHours === currentHours;
-    const alarmMinutesMinus = alarmMinutes <= currentMinutes;
-    const alarmMinutesEqual = alarmMinutes === currentMinutes;
-
-    return(alarmYearMinus || 
-        alarmYearEqual && alarmMonthMinus || 
-        alarmYearEqual && alarmMonthEqual && alarmDayMinus || 
-        alarmYearEqual && alarmMonthEqual && alarmDayEqual && alarmHoursMinus|| 
-        alarmYearEqual && alarmMonthEqual && alarmDayEqual && alarmHoursEqual && alarmMinutesMinus || 
-        alarmYearEqual && alarmMonthEqual && alarmDayEqual && alarmHoursEqual && alarmMinutesEqual
-        );
+function formatNumber(value) {
+  if (value < 10) {
+    return "0" + value;
+  } else {
+    return value;
+  }
 }
-
