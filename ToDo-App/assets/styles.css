@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: black;
+}
+
+h3{
+  color: #FFC107;
+}
+
+hr {
+  border: none; 
+  height: 1px; 
+  background-color: #FFC107; 
+  width: 100%;
+}
+
+main {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.userselects {
+  margin-bottom: 20px;
+}
+
+#select-users {
+  color: white;
+  background-color: black;
+  font-size: 16px;
+  padding: 8px;
+  border: solid 1px #FFC107;
+  border-radius: 4px;
+}
+
+.btn {
+  margin-bottom: 20px;
+}
+
+#btn {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  color: black;
+  background-color: #FFC107;
+}
+
+.user-container {
+  color: white;
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.user-container ul {
+  list-style: none;
+}
+
+.user-container li {
+  margin-bottom: 10px;
+}
+
+.task-container {
+  color: white;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.task-container ul {
+  list-style: none;
+  text-align: left;
+}
+
+.task-container li {
+  margin-bottom: 10px;
+}
+
+.task-container input[type="checkbox"] {
+  margin-right: 10px;
+}

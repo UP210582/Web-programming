@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="shortcut icon" href="icon/icon.png" type="image/notes-icon">
+    <title>ToDo-App</title>
+
+    <!-- Estilos Css -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="userselects">
+          <select id="select-users">
+            <option value="1">Micaela</option>
+            <option value="2">Ester</option>
+            <option value="3">Mercedes</option>
+            <option value="4">Francisco Javier</option>
+            <option value="5">Elsa</option>
+            <option value="6">Agustin</option>
+            <option value="7">Mario</option>
+            <option value="8">Matias</option>
+            <option value="9">Irene</option>
+            <option value="10">Kevin</option>
+          </select>
+          <button class="btn" id="btn">Actualizar Info</button>
+      </section>
+      <hr>
+      <section class="user-container" id="user-container">
+          <!-- Elemento de listas como se deben de ver las tareas -->
+          <h3>Información del usuario seleccionado</h3>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </section>
+      <hr>
+      <section class="task-container" id="task-container">
+        <!-- Elemento de lista, para mostar las tareas -->
+        <h3>Lista de tareas del usuario</h3>
+        <ul>
+          <li>
+            <span></span>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
