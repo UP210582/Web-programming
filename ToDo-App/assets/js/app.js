@@ -48,17 +48,16 @@ btn.addEventListener('click',()=>{
         while(ul.firstChild){
             ul.removeChild(ul.firstChild)
         }
-            for (let i = 0; i < text.length; i++) {
-                const li = document.createElement('li')
-                const checkbox = document.createElement('input')
-                checkbox.setAttribute('type','checkbox')
-                li.innerText = text[i].title
-                if (text[i].completed) {
-                    checkbox.checked = true
-                }
-                li.appendChild(checkbox)
-                ul.appendChild(li)    
+        for (let i = 0; i < text.length; i++) {
+            const li = document.createElement('li')
+            const checkbox = document.createElement('input')
+            checkbox.setAttribute('type','checkbox')
+            li.innerText = text[i].title
+            if (text[i].completed) {
+                checkbox.checked = true
+            }
+            li.appendChild(checkbox)
+            ul.appendChild(li)    
             }            
     })
-    
 })
