@@ -84,7 +84,7 @@ btn.addEventListener('click', () => {
  * @returns {Promise<User[]>}
  */
 function getAllUsers() {
-  return fetch('/data/usuarios.json')
+  return fetch('http://localhost:5501/connection.php')
     .then(resp => resp.json());
 }
 
@@ -93,7 +93,7 @@ function getAllUsers() {
  * @returns {Promise<Task[]>}
  */
 function getAllTasks() {
-  return fetch('/data/tareas.json')
+  return fetch('http://localhost:5501/tasks.php')
     .then(resp => resp.json());
 }
 
