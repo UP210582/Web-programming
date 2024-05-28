@@ -12,7 +12,8 @@ try {
         'idUser' => $row['idUser'],
         'title' => $row['title'],
         'completed' => $row['completed'] == 1,
-        'firstname' => $row['firstname'],
+        'firstname' => $row['firstname']
+        
     ];
 
     $jsonString = json_encode($json);
